@@ -17,8 +17,7 @@
   (message "Use-package is unavailable!")
   (defmacro use-package (&rest _args)))
 
-;(require 'wb-line-number)
-;(wb-line-number-toggle)
+;;add matlab_mode
 
 ;;ignore sounds
 (setq ring-bell-function 'ignore)
@@ -34,5 +33,10 @@
 ;;load modes
 (load "init-global") ;;共通の設定を記述
 (load "markdown-mode")
+<<<<<<< HEAD
 ;;(load "cuda-mode")
+=======
+(load "matlab")
+;(load "cuda-mode")
+>>>>>>> b1548364df0842be02cc9cd167ad05ec2c1fdbab
 ;;(load "init-utility")
