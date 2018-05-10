@@ -28,10 +28,11 @@
 (define-key global-map (kbd "C-e") 'end-of-buffer)
 (define-key global-map (kbd "M-w") 'copy-region-as-kill)
 (define-key global-map (kbd "C-w") 'kill-region)
-(define-key global-map (kbd "C-u") 'undo )
+(define-key global-map (kbd "C-u") 'undo)
 (define-key global-map (kbd "C-t") 'beginning-of-buffer)
+
 ;;load modes
 (load "init-global") ;;共通の設定を記述
 (load "markdown-mode")
-;(load "cuda-mode")
+;;(load "cuda-mode")
 ;;(load "init-utility")
