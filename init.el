@@ -17,8 +17,7 @@
   (message "Use-package is unavailable!")
   (defmacro use-package (&rest _args)))
 
-;(require 'wb-line-number)
-;(wb-line-number-toggle)
+;;add matlab_mode
 
 ;;ignore sounds
 (setq ring-bell-function 'ignore)
@@ -30,8 +29,10 @@
 (define-key global-map (kbd "C-w") 'kill-region)
 (define-key global-map (kbd "C-u") 'undo )
 (define-key global-map (kbd "C-t") 'beginning-of-buffer)
+
 ;;load modes
 (load "init-global") ;;共通の設定を記述
 (load "markdown-mode")
+(load "matlab")
 ;(load "cuda-mode")
 ;;(load "init-utility")
