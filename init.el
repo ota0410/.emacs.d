@@ -18,7 +18,7 @@
 (add-to-load-path "elisp")
 
 ;;do not create bakeup file
-(setq make-backup-files t)
+(setq make-backup-files nil)
 
 ;;swap-buffer
 (defun swap-buffers ()
