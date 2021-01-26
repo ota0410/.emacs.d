@@ -64,5 +64,6 @@
 (load "matlab")
 ;;(load "php-mode")
 (load "cuda-mode")
+(load "go-mode")
 ;;(load "init-utility")
 (put 'downcase-region 'disabled nil)
