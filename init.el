@@ -19,7 +19,8 @@
 
 ;;do not create bakeup file
 (setq make-backup-files nil)
-
+;;set bg color
+(set-face-background 'default "#303030")
 ;;swap-buffer
 (defun swap-buffers ()
   "Swapping buffers in two windows"
