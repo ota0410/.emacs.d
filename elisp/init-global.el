@@ -2,9 +2,7 @@
 (setq default-directory "~/")
 
 ;;display line number
-(global-linum-mode t)
-(setq linum-format "%3d  ")
-(custom-set-faces
- '(linum ((t (:inherit(shadow default))))))
-
-(keyboard-translate ?\C-h ?\C-?)
+(require 'linum)		;; Display the number of line in the left side.
+(global-linum-mode t)      ;; Enable linum-mode by default
+(setq linum-format "%3d ") ;; make rooms after the line number
+(line-number-mode t)	   ;; Display the number in the bottom of bar

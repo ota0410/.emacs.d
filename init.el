@@ -1,10 +1,16 @@
 ;; -*- Mode: Emacs-Lisp; Coding: utf-8 -*-
-;;repository
-(package-initialize)
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-	("melpa" . "http://melpa.org/packages/")
-	("org" . "http://orgmode.org/elpa/")))
+
+;; - install the package by the following steps ;;
+;;     1. M-x package-list-packages
+;;     2. Check the list of package registerd in some repos.
+;;     3. Add "I" flag to the package you want to install.
+;;     4. Press "x" to install packages you selected.
+;;
+;;
+;; - init.el is built by the following command ;;
+;;      emacs --batch -f batch-byte-compile init.el
+;;   This helps launch of emacs rapid a little.
+
 ;;add load-path
 (defun add-to-load-path (&rest paths)
   (let (path)
@@ -14,6 +20,7 @@
         (add-to-list 'load-path default-directory)
         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
             (normal-top-level-add-subdirs-to-load-path))))))
+
 ;;add load path "elisp" "conf"
 (add-to-load-path "elisp")
 
@@ -22,6 +29,7 @@
 ;;set bg color
 (set-face-background 'default "#303030")
 ;;swap-buffer
+
 (defun swap-buffers ()
   "Swapping buffers in two windows"
   (interactive)
@@ -36,16 +44,6 @@
 	  (select-window other-w)
 	  (switch-to-buffer current-b)
 	  ))))
-;;;swap-screenに倣ってf2/S-f2に割り当てる
-(global-set-key [f2] 'swap-buffers-keep-focus)
-(global-set-key [C-f2] 'swap-buffers)
-
-
-;;use-packageをrequire の代わりに使う
-(if (require 'use-package nil t)
-    (setq use-package-verbose t)
-  (message "Use-package is unavailable!")
-  (defmacro use-package (&rest _args)))
 
 ;;ignore sounds
 (setq ring-bell-function 'ignore)
@@ -58,24 +56,38 @@
 (define-key global-map (kbd "C-u") 'undo)
 (define-key global-map (kbd "C-t") 'beginning-of-buffer)
 
-
 ;;load modes
-(load "init-global") ;;共通の設定を記述
+(load "init-global") 
 (load "markdown-mode")
 (load "matlab")
-;;(load "php-mode")
 (load "cuda-mode")
 (load "go-mode")
 (load "yaml-mode")
-;;(load "init-utility")
+
 (put 'downcase-region 'disabled nil)
-;;; package.el
+;;; package.el (repolist)
 (require 'package)
-;; MELPAを追加
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;; MELPA-stableを追加
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-;; Marmaladeを追加
 (add-to-list 'package-archives  '("marmalade" . "https://marmalade-repo.org/packages/"))
-;; Orgを追加
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
+ '(package-selected-packages
+   '(markdown-mode leaf-tree leaf-convert hydra gptel el-get blackout)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(use-package gptel
+  :ensure t
+  :config
+  (setq gptel-api-key (getenv "OPENAI_API_KEY")))
