@@ -87,6 +87,7 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; Install the gptel and give API Key as a environment variable.
 (use-package gptel
   :ensure t
   :config
