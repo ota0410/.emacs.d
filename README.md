@@ -117,5 +117,3 @@ Notes:
   - Install gptel from MELPA and ensure use-package is installed.
 - Line numbers not toggling:
   - If linum-mode is unavailable in your Emacs, use display-line-numbers-mode.
-
-That’s it—copy this README.md into your repository to document the configuration and its behavior.
